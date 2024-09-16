@@ -5,8 +5,8 @@ import java.util.Map;
 
 // BEGIN
 public class Tag {
-    protected String name;
-    protected Map<String, String> attributes;
+    private String name;
+    private Map<String, String> attributes;
 
     public Tag(String name, Map<String, String> attributes) {
         this.name = name;
@@ -19,6 +19,12 @@ public class Tag {
 
     public Map<String, String> getAttributes() {
         return attributes;
+    }
+
+    public String stringifyAttributes() {
+        return attributes.entrySet().stream()
+                .map(e -> " %s=\"%s\"".formatted(e.getKey(), e.getValue()))
+                .collect(Collectors.joining(""));
     }
 }
 // END

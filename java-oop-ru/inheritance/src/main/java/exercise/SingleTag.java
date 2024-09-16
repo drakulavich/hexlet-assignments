@@ -10,12 +10,7 @@ public class SingleTag extends Tag {
     }
 
     public String toString() {
-        var attributesStr = attributes.entrySet().stream()
-                .map(e -> "%s=\"%s\"".formatted(e.getKey(), e.getValue()))
-                .collect(Collectors.joining(" "));
-
-        var result = attributesStr.isBlank() ? "<%s>".formatted(name) : "<%s %s>".formatted(name, attributesStr);
-        return result;
+        return "<%s%s>".formatted(getName(), stringifyAttributes());
     }
 }
 // END

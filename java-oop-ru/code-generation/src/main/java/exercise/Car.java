@@ -1,10 +1,12 @@
 package exercise;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 // BEGIN
 @Data
+@AllArgsConstructor
 // END
 class Car {
     int id;
